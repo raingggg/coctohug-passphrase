@@ -1,7 +1,7 @@
 #!/bin/env bash
 
 CCH_DIR="$HOME/.coctohug"
-MNC_RAW_FILE="$HOME/.coctohug/mnemonic.txt"
+MNC_RAW_FILE="$HOME/.coctohug/mnc.txt"
 MNC_ENC_FILE="$HOME/.coctohug/mnc.ek"
 if [ -d "$CCH_DIR" ]; then
   ### Take action if $CCH_DIR exists ###
@@ -68,13 +68,13 @@ gpg --output "$MNC_RAW_FILE" --decrypt "$MNC_ENC_FILE"
 nohup ./delete_mnemonic.sh &
 
 # iterate all cocthug folders and cp mnt file to them
-for d in "$HOME"/.coctohug-*/ ; do
-    cp "$MNC_RAW_FILE" "$d"
-    echo "copied to $d"
-done
+# for d in "$HOME"/.coctohug-*/ ; do
+#     cp "$MNC_RAW_FILE" "$d"
+#     echo "copied to $d"
+# done
 
-rm -f "$MNC_RAW_FILE"
-echo "$MNC_RAW_FILE has been removed"
+# rm -f "$MNC_RAW_FILE"
+# echo "$MNC_RAW_FILE has been removed"
 
 echo "all keys has been copied to coctohug hands and will be removed in 5 minutes automatically"
 echo "****** now you may press Enter to work on other stuff... ******"

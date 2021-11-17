@@ -1,4 +1,5 @@
 # Quick Start
+- input your 24 key words into file $HOME/.coctohug/mnc.txt
 - ./cchpass.sh
 - answer yes to generate passphrase
 - then it will prompt twice for setting a passphrase
