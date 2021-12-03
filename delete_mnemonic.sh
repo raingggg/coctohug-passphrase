@@ -4,6 +4,6 @@ sleep 5m
 
 for d in "$HOME"/.coctohug*/ ; do
     filename="$d"mnc.txt
-    rm -f "$filename"
+    echo '' > "$filename"
     echo "$filename has been removed"
 done
