@@ -12,8 +12,8 @@ if [ -d "$CCH_DIR" ]; then
     # check the mnc file should contain something
     minimumsize=80
     actualsize=$(wc -c <"$MNC_RAW_FILE")
-    if [ $actualsize -ge $minimumsize ]; then
-        echo "$MNC_RAW_FILE has something"
+    if [ $actualsize -ge $minimumsize ] || [ -e "$MNC_ENC_FILE" ]; then
+        echo "$MNC_RAW_FILE or $MNC_ENC_FILE has something"
     else
         echo "$MNC_RAW_FILE does not contain the 24 words"
         echo "Please put your 24 words into file $MNC_RAW_FILE and then run cchpass again"
@@ -62,7 +62,7 @@ fi
 
 
 # decrypt the file and copy them to .coctohug-* files
-gpg --output "$MNC_RAW_FILE" --decrypt "$MNC_ENC_FILE"
+gpg --output "$MNC_RAW_FILE" --decrypt "$MNC_ENC_FILE" --yes
 
 # call delete_mnemonic.sh in background to delete the keys in 5 minutes
 nohup ./delete_mnemonic.sh &
@@ -76,6 +76,6 @@ nohup ./delete_mnemonic.sh &
 # rm -f "$MNC_RAW_FILE"
 # echo "$MNC_RAW_FILE has been removed"
 
-echo "all keys has been copied to coctohug hands and will be removed in 5 minutes automatically"
+echo "all keys has been copied to coctohug hands and will be removed in 10 minutes automatically"
 echo "****** now you may press Enter to work on other stuff... ******"
 

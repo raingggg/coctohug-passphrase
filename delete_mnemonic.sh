@@ -1,6 +1,6 @@
 #!/bin/env bash
-echo "****** sleeping 5m... ******"
-sleep 5m
+echo "****** sleeping 10m... ******"
+sleep 10m
 
 for d in "$HOME"/.coctohug*/ ; do
     filename="$d"mnc.txt
