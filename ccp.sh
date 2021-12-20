@@ -62,7 +62,7 @@ fi
 
 
 # decrypt the file and copy them to .coctohug-* files
-gpg --output "$MNC_RAW_FILE" --decrypt "$MNC_ENC_FILE" --yes
+gpg --output "$MNC_RAW_FILE" --decrypt "$MNC_ENC_FILE"
 
 # call delete_mnemonic.sh in background to delete the keys in 5 minutes
 nohup ./delete_mnemonic.sh &
